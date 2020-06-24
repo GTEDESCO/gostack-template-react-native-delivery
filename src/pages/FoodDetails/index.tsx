@@ -123,11 +123,8 @@ const FoodDetails: React.FC = () => {
 
   const cartTotal = useMemo(() => {
     return formatValue(
-      extras.reduce(
-        (total, extra) =>
-          total + extra.value * extra.quantity + food.price * foodQuantity,
-        0,
-      ),
+      extras.reduce((total, extra) => total + extra.value * extra.quantity, 0) +
+        food.price * foodQuantity,
     );
   }, [extras, food, foodQuantity]);
 
